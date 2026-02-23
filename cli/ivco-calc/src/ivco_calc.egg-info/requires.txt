@@ -1,5 +1,11 @@
 click>=8.0
 
+[all]
+psycopg2-binary>=2.9
+
+[db]
+psycopg2-binary>=2.9
+
 [dev]
 pytest>=7.0
 pytest-cov

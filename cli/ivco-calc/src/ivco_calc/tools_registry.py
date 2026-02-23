@@ -47,6 +47,17 @@ TOOLS = [
         "input": "Ticker symbol + years",
         "output": "JSON with income_statements, balance_sheet, quote",
     },
+    {
+        "name": "store",
+        "layer": 1,
+        "layer_name": "primitive",
+        "description": "Store analysis results to Supabase PostgreSQL",
+        "usage": "ivco analyze ... | ivco store --type analysis",
+        "input": "JSON from stdin (pipe from other ivco commands)",
+        "output": "JSON confirmation with stored row IDs",
+        "requires": "DATABASE_URL env var + psycopg2 (pip install ivco-calc[db])",
+        "types": ["analysis", "oe", "financial", "signal"],
+    },
     # Layer 2: Composed Tools
     {
         "name": "analyze",
@@ -57,6 +68,29 @@ TOOLS = [
         "input": "Ticker + Allen Framework parameters",
         "output": "JSON with full OE series, CAGR, IV range, current price",
         "composes": ["fetch", "calc-oe", "calc-cagr", "calc-iv"],
+    },
+    # Layer 2: Planned (not yet implemented)
+    {
+        "name": "ivco-search",
+        "layer": 1,
+        "layer_name": "primitive",
+        "description": "Search news, supply chain, and competitor intel via Tavily API",
+        "usage": "ivco-search --ticker KLAC --scope news,supply-chain,competitors",
+        "input": "Ticker + search scope",
+        "output": "JSON with search results scored by relevance",
+        "status": "planned",
+        "requires": "TAVILY_API_KEY env var",
+    },
+    {
+        "name": "ivco-report",
+        "layer": 2,
+        "layer_name": "composed",
+        "description": "Generate Obsidian report + Blog draft from research session",
+        "usage": "ivco-report --session-id N --output obsidian,blog",
+        "input": "Research session ID from Supabase",
+        "output": "Markdown files written to Obsidian + docs/blog/",
+        "status": "planned",
+        "composes": ["store"],
     },
 ]
 

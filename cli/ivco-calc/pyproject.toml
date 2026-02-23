@@ -4,13 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ivco-calc"
-version = "0.2.0"
-description = "IVCO calculation engine — three-tier calibration + three-stage DCF"
+version = "0.3.0"
+description = "IVCO calculation engine — three-tier calibration + three-stage DCF + Supabase storage"
 requires-python = ">=3.10"
 dependencies = ["click>=8.0"]
 
 [project.optional-dependencies]
+db = ["psycopg2-binary>=2.9"]
 dev = ["pytest>=7.0", "pytest-cov"]
+all = ["psycopg2-binary>=2.9"]
 
 [project.scripts]
 ivco = "ivco_calc.cli:cli"
