@@ -56,6 +56,21 @@ Integration:   MCP Servers + Claude Code + Codex
 
 All articles written in English, Fisher's voice. Topics: Allen Framework, TSMC Case Study, Owner Earnings, Why IVCO, Three-Stage DCF, Confidence Coefficient, How IVCO Became an Intelligence.
 
+## Inbox Watcher Protocol
+
+At **session start** and **after completing each major task**, run:
+
+```bash
+python3 ~/AI-Workspace/projects/allen-ivco/scripts/codex_inbox_watcher.py
+```
+
+- If unread messages exist, **read and process them before starting new work**.
+- If zero unread, the script exits silently (no action needed).
+- Detection events are logged to `~/AI-Workspace/memory/debug-log/raw/codex-inbox-watcher.log`.
+- The watcher is detect-only: it alerts you to unread messages but does not modify them. You must read the actual JSON files to process messages.
+
+This is the Codex-side counterpart to Jane's automatic PostToolUse hook. Following this protocol ensures messages from Chi/Jane are never missed.
+
 ## Development Rules
 
 - Conventional Commits: `fix/feat/refactor/docs/test/chore`
