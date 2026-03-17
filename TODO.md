@@ -18,7 +18,7 @@
 **Steps**:
 ```bash
 # 1. 進入 CMS 目錄
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cms
+cd /Users/allenchenmac/fisher/projects/allen-ivco/cms
 
 # 2. 啟動開發服務器
 npm run dev

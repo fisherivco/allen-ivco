@@ -12,21 +12,22 @@ from typing import Any
 INBOX_DIR = Path(
     os.environ.get(
         "CODEX_INBOX_DIR",
-        str(Path.home() / "AI-Workspace" / "shared-state" / "inbox" / "codex-cli"),
+        str(Path.home() / "fisher" / "shared-state" / "inbox" / "codex-cli"),
     )
 )
 WORKSPACE_ROOT = Path(
     os.environ.get(
         "AGENT_BUS_WORKSPACE",
-        "/Users/allenchenmac/AI-Workspace",
+        "/Users/allenchenmac/fisher",
     )
 )
 BUS_PENDING_DIR = WORKSPACE_ROOT / "shared-state" / "agent-bus" / "tasks" / "pending"
+BUS_MESSAGES_DIR = WORKSPACE_ROOT / "shared-state" / "agent-bus" / "tasks" / "messages"
 BUS_IN_PROGRESS_DIR = WORKSPACE_ROOT / "shared-state" / "agent-bus" / "tasks" / "in-progress"
 TRIGGER_FILE = Path(
     os.environ.get(
         "CODEX_INBOX_TRIGGER",
-        str(Path.home() / "AI-Workspace" / "shared-state" / "inbox" / "codex-cli" / ".trigger"),
+        str(Path.home() / "fisher" / "shared-state" / "inbox" / "codex-cli" / ".trigger"),
     )
 )
 LOG_FILE = Path(
@@ -34,7 +35,7 @@ LOG_FILE = Path(
         "CODEX_INBOX_WATCHER_LOG",
         str(
             Path.home()
-            / "AI-Workspace"
+            / "fisher"
             / "shared-state"
             / "contributions"
             / "codex"
@@ -218,6 +219,8 @@ def _write_digest(
     """Write a structured JSON digest for Codex CLI to consume at session start."""
     now = datetime.now().isoformat()
     unread_count = len(messages)
+    latest_subjects = [str(m.get("subject", "(no subject)")) for m in messages[-5:]]
+    extra_subjects = max(0, unread_count - len(latest_subjects))
     digest = {
         "unread_count": unread_count,
         "inbox_unread": unread_count,
@@ -225,6 +228,8 @@ def _write_digest(
         "comm_pending": comm_pending,
         "comm_in_progress": comm_in_progress,
         "newest_subject": newest_subject,
+        "latest_subjects": latest_subjects,
+        "extra_subjects": extra_subjects,
         "messages": messages,
         "last_checked": now,
         "digest_created": now,
@@ -244,9 +249,12 @@ def _log_detection(count: int, subjects: list[str]) -> None:
 def main() -> int:
     unread = _collect_unread()
     inbox_total = _count_inbox_total()
+    messages_comm_tasks = _collect_comm_tasks(BUS_MESSAGES_DIR)
+    # Transition fallback: still scan pending/ until all COMM tasks are migrated.
     pending_comm_tasks = _collect_comm_tasks(BUS_PENDING_DIR)
+    queued_comm_tasks = messages_comm_tasks + pending_comm_tasks
     in_progress_comm_tasks = _collect_comm_tasks(BUS_IN_PROGRESS_DIR)
-    comm_pending = len(pending_comm_tasks)
+    comm_pending = len(queued_comm_tasks)
     comm_in_progress = len(in_progress_comm_tasks)
 
     if not unread and comm_pending == 0 and comm_in_progress == 0:
@@ -260,7 +268,7 @@ def main() -> int:
         )
         return 0
 
-    newest_subject = _pick_newest_subject(unread, pending_comm_tasks)
+    newest_subject = _pick_newest_subject(unread, queued_comm_tasks)
     subjects = [m["subject"] for m in unread]
     _write_trigger(
         unread_count=len(unread),

@@ -15,13 +15,13 @@
 #                          Auth: X_BEARER_TOKEN from ~/.config/env/global.env
 #
 # Rollback:
-#   cp ~/AI-Workspace/memory/backups/collect-x-intel.sh.bak.20260215 \
-#      ~/AI-Workspace/projects/allen-ivco/scripts/collect-x-intel.sh
+#   cp ~/fisher/memory/backups/collect-x-intel.sh.bak.20260215 \
+#      ~/fisher/projects/allen-ivco/scripts/collect-x-intel.sh
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-LOG_DIR="/Users/allenchenmac/AI-Workspace/memory/daily"
+LOG_DIR="/Users/allenchenmac/fisher/memory/daily"
 LOG_FILE="${LOG_DIR}/x-intel-collect.log"
 TMP_DIR="/tmp/ivco-collect"
 QUEUE_DIR="/tmp/ivco-collect-queue"

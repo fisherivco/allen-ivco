@@ -97,13 +97,13 @@ collections: [Users, Media, Authors, Companies, CompanyEvents, Categories, Posts
 
 **Step 3: Verify TypeScript compiles**
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cms && pnpm exec tsc --noEmit`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cms && pnpm exec tsc --noEmit`
 Expected: No errors
 
 **Step 4: Commit**
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add cms/src/collections/Authors.ts cms/src/payload.config.ts
 git commit -m "feat(cms): add Authors collection for blog E-E-A-T
 
@@ -356,13 +356,13 @@ export const Posts: CollectionConfig = {
 
 **Step 2: Verify TypeScript compiles**
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cms && pnpm exec tsc --noEmit`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cms && pnpm exec tsc --noEmit`
 Expected: No errors
 
 **Step 3: Commit**
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add cms/src/collections/Posts.ts
 git commit -m "feat(cms): upgrade Posts with SEO schema, FAQ, author
 
@@ -426,13 +426,13 @@ Add `exchange` field to the `基本資訊` tab, after `ticker`:
 
 **Step 2: Verify TypeScript compiles**
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cms && pnpm exec tsc --noEmit`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cms && pnpm exec tsc --noEmit`
 Expected: No errors
 
 **Step 3: Commit**
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add cms/src/collections/Companies.ts
 git commit -m "feat(cms): add maintenance_capex_ratio + exchange to Companies
 
@@ -452,7 +452,7 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 **Step 1: Create migration directory**
 
 ```bash
-mkdir -p /Users/allenchenmac/AI-Workspace/projects/allen-ivco/supabase/migrations
+mkdir -p /Users/allenchenmac/fisher/projects/allen-ivco/supabase/migrations
 ```
 
 **Step 2: Write migration SQL**
@@ -562,13 +562,13 @@ CREATE INDEX IF NOT EXISTS idx_iv_ticker_date ON iv_calculations (ticker, calcul
 
 **Step 3: Verify SQL syntax**
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco && python3 -c "open('supabase/migrations/001_core_tables.sql').read(); print('SQL file readable')"`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco && python3 -c "open('supabase/migrations/001_core_tables.sql').read(); print('SQL file readable')"`
 Expected: `SQL file readable`
 
 **Step 4: Commit**
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add supabase/migrations/001_core_tables.sql
 git commit -m "feat(supabase): add 4 core tables for IVCO data layer
 
@@ -649,7 +649,7 @@ def test_fetch_cli_requires_ticker():
 
 ### Step 2: Run tests to verify they fail
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_fetch.py -v`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_fetch.py -v`
 Expected: FAIL (modules not yet created)
 
 ### Step 3: Create fetcher base interface
@@ -805,18 +805,18 @@ No dependency changes needed — FMP fetcher uses stdlib `urllib`. Keep dependen
 
 ### Step 7: Run tests to verify they pass
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_fetch.py -v`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_fetch.py -v`
 Expected: 3 PASS
 
 ### Step 8: Run all existing tests to confirm no regressions
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/ -v`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/ -v`
 Expected: All 11 existing + 3 new = 14 PASS
 
 ### Step 9: Commit
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add cli/ivco-calc/src/ivco_calc/fetchers/ cli/ivco-calc/src/ivco_calc/cli.py cli/ivco-calc/tests/test_fetch.py
 git commit -m "feat(cli): add ivco fetch — FMP API financial data fetcher
 
@@ -865,7 +865,7 @@ def test_analyze_cli_help():
 
 ### Step 2: Run test to verify it fails
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_analyze.py -v`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_analyze.py -v`
 Expected: FAIL
 
 ### Step 3: Implement analyze command
@@ -965,18 +965,18 @@ def analyze_cmd(ticker, years, maintenance_ratio, cc_low, cc_high,
 
 ### Step 4: Run tests to verify they pass
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_analyze.py -v`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_analyze.py -v`
 Expected: 2 PASS
 
 ### Step 5: Run all tests
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/ -v`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/ -v`
 Expected: All PASS (14 + 2 = 16)
 
 ### Step 6: Commit
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add cli/ivco-calc/src/ivco_calc/cli.py cli/ivco-calc/tests/test_analyze.py
 git commit -m "feat(cli): add ivco analyze — one-stop fetch+calc pipeline
 
@@ -1003,7 +1003,7 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 ### Step 1: Create directory structure
 
 ```bash
-mkdir -p /Users/allenchenmac/AI-Workspace/projects/allen-ivco/config/agents/shared
+mkdir -p /Users/allenchenmac/fisher/projects/allen-ivco/config/agents/shared
 ```
 
 ### Step 2: Create shared Allen Framework DNA
@@ -1418,7 +1418,7 @@ Given the survivor list from Round 3:
 ### Step 6: Commit
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add config/agents/
 git commit -m "feat(agents): add Deep Value Council DNA — 4 roles + 3 shared
 
@@ -1488,7 +1488,7 @@ def test_list_tools_cli():
 
 ### Step 2: Run test to verify it fails
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_tools_registry.py -v`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_tools_registry.py -v`
 Expected: FAIL
 
 ### Step 3: Create tools registry
@@ -1601,18 +1601,18 @@ def tool_info_cmd(name):
 
 ### Step 5: Run tests
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_tools_registry.py -v`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/test_tools_registry.py -v`
 Expected: 4 PASS
 
 ### Step 6: Run all tests
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/ -v`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/ -v`
 Expected: All PASS (16 + 4 = 20)
 
 ### Step 7: Commit
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add cli/ivco-calc/src/ivco_calc/tools_registry.py cli/ivco-calc/src/ivco_calc/cli.py cli/ivco-calc/tests/test_tools_registry.py
 git commit -m "feat(cli): add tool ecosystem skeleton — list-tools + tool-info
 
@@ -1676,7 +1676,7 @@ describe('generateFAQSchema', () => {
 
 ### Step 2: Run test to verify it fails
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cms && pnpm exec vitest run src/lib/__tests__/structured-data.test.ts`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cms && pnpm exec vitest run src/lib/__tests__/structured-data.test.ts`
 Expected: FAIL (module not found)
 
 ### Step 3: Implement structured data generators
@@ -1755,13 +1755,13 @@ export function generateHowToSchema(title: string, steps: { name: string; text: 
 
 ### Step 4: Run test to verify it passes
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cms && pnpm exec vitest run src/lib/__tests__/structured-data.test.ts`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cms && pnpm exec vitest run src/lib/__tests__/structured-data.test.ts`
 Expected: PASS
 
 ### Step 5: Commit
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add cms/src/lib/structured-data.ts cms/src/lib/__tests__/structured-data.test.ts
 git commit -m "feat(cms): add JSON-LD structured data generators
 
@@ -1788,7 +1788,7 @@ Update `cli.py` version option to `0.2.0`.
 
 ### Step 2: Verify editable install works
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && pip install -e ".[dev]" && ivco --version`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && pip install -e ".[dev]" && ivco --version`
 Expected: `ivco, version 0.2.0`
 
 ### Step 3: Verify all commands accessible
@@ -1798,13 +1798,13 @@ Expected: Shows calc-oe, calc-cagr, calc-iv, verify, fetch, analyze, list-tools,
 
 ### Step 4: Run full test suite
 
-Run: `cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/ -v --tb=short`
+Run: `cd /Users/allenchenmac/fisher/projects/allen-ivco/cli/ivco-calc && python -m pytest tests/ -v --tb=short`
 Expected: 20 tests PASS
 
 ### Step 5: Commit
 
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 git add cli/ivco-calc/pyproject.toml cli/ivco-calc/src/ivco_calc/cli.py
 git commit -m "chore(cli): bump version to 0.2.0 — fetch + analyze + tools ecosystem
 

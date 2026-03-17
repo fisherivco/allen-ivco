@@ -96,7 +96,7 @@
 
 #### 優先級 P0：測試 Companies Collection
 ```bash
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco/cms
+cd /Users/allenchenmac/fisher/projects/allen-ivco/cms
 npm run dev
 open http://localhost:3000/admin
 ```

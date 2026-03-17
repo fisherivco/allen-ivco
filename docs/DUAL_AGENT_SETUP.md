@@ -127,7 +127,7 @@ claude mcp add codex --scope user -- codex mcp-server
 | `CLAUDE.md` | Read + Write + Commit | **Read only** | Read only (sandbox) |
 | `.env*` | Read (with security DNA) | **NEVER** | **NEVER** |
 
-### Knowledge System (`~/Vaults/Obsidian/`)
+### Knowledge System (`~/fisher/obsidian/`)
 
 | Path | Jane | Codex |
 |------|------|-------|
@@ -212,10 +212,10 @@ claude mcp add codex --scope user -- codex mcp-server
 
 | Task Type | `cwd` Parameter |
 |-----------|----------------|
-| IVCO development | `/Users/allenchenmac/AI-Workspace/projects/allen-ivco` |
-| Knowledge analysis | `/Users/allenchenmac/Vaults/Obsidian` |
-| System analysis | `/Users/allenchenmac/AI-Workspace` |
-| Tool development | `/Users/allenchenmac/AI-Workspace/projects/allen-ivco/cli` |
+| IVCO development | `/Users/allenchenmac/fisher/projects/allen-ivco` |
+| Knowledge analysis | `/Users/allenchenmac/fisher/obsidian` |
+| System analysis | `/Users/allenchenmac/fisher` |
+| Tool development | `/Users/allenchenmac/fisher/projects/allen-ivco/cli` |
 
 ### Git Remotes (Jane manages all pushes)
 
@@ -310,7 +310,7 @@ claude mcp add codex --scope user -- codex mcp-server
 ```
 mcp__codex__codex:
   prompt: "Write a TypeScript collection for {description}..."
-  cwd: /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+  cwd: /Users/allenchenmac/fisher/projects/allen-ivco
   sandbox: workspace-write
   approval-policy: on-failure
 ```
@@ -319,7 +319,7 @@ mcp__codex__codex:
 ```
 mcp__codex__codex:
   prompt: "Review the following code for {criteria}..."
-  cwd: /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+  cwd: /Users/allenchenmac/fisher/projects/allen-ivco
   sandbox: read-only
   approval-policy: on-failure
 ```

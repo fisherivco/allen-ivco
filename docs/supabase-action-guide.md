@@ -107,7 +107,7 @@ supabase --version
 supabase login
 
 # 在 IVCO 專案根目錄初始化（會建立 supabase/ 目錄）
-cd /Users/allenchenmac/AI-Workspace/projects/allen-ivco
+cd /Users/allenchenmac/fisher/projects/allen-ivco
 supabase init
 ```
 
@@ -180,14 +180,14 @@ supabase db diff
 ```bash
 # 完整備份（Custom format，最穩健）
 pg_dump -h localhost -p 5433 -U ivco_user -Fc ivco_dev \
-  > /Users/allenchenmac/AI-Workspace/memory/backups/ivco_dev_$(date +%F).dump
+  > /Users/allenchenmac/fisher/memory/backups/ivco_dev_$(date +%F).dump
 
 # 驗證備份檔案大小
-ls -lh /Users/allenchenmac/AI-Workspace/memory/backups/ivco_dev_*.dump
+ls -lh /Users/allenchenmac/fisher/memory/backups/ivco_dev_*.dump
 
 # 可選：同時產生 SQL 文字備份（方便人工檢視）
 pg_dump -h localhost -p 5433 -U ivco_user --no-owner --no-acl ivco_dev \
-  > /Users/allenchenmac/AI-Workspace/memory/backups/ivco_dev_$(date +%F).sql
+  > /Users/allenchenmac/fisher/memory/backups/ivco_dev_$(date +%F).sql
 ```
 
 ### 3.3 還原至 Supabase
@@ -204,7 +204,7 @@ pg_restore \
   --no-acl \
   --clean \
   --if-exists \
-  /Users/allenchenmac/AI-Workspace/memory/backups/ivco_dev_2026-02-07.dump
+  /Users/allenchenmac/fisher/memory/backups/ivco_dev_2026-02-07.dump
 
 # 系統會要求輸入 Database Password（建立 Supabase 專案時設定的密碼）
 ```
@@ -444,14 +444,14 @@ IVCO 專案的數據量估算：
 # 加入你的 crontab（每日凌晨 3:00 備份）
 0 3 * * * /usr/local/bin/python3 -c "print('backup')" && \
   pg_dump "postgresql://postgres.[ref]:[pwd]@aws-0-ap-northeast-1.pooler.supabase.com:5432/postgres" \
-  | gzip > /Users/allenchenmac/AI-Workspace/memory/backups/supabase_$(date +\%F).sql.gz
+  | gzip > /Users/allenchenmac/fisher/memory/backups/supabase_$(date +\%F).sql.gz
 ```
 
 保留最近 7 天備份的清理腳本：
 
 ```bash
 # 刪除 7 天前的備份
-find /Users/allenchenmac/AI-Workspace/memory/backups/ \
+find /Users/allenchenmac/fisher/memory/backups/ \
   -name "supabase_*.sql.gz" -mtime +7 -delete
 ```
 
@@ -462,7 +462,7 @@ find /Users/allenchenmac/AI-Workspace/memory/backups/ \
 ```bash
 # 每 5 天 ping 一次資料庫，防止自動暫停
 0 9 */5 * * psql "postgresql://postgres.[ref]:[pwd]@aws-0-ap-northeast-1.pooler.supabase.com:5432/postgres" \
-  -c "SELECT 1;" >> /Users/allenchenmac/AI-Workspace/memory/daily/supabase-keepalive.log 2>&1
+  -c "SELECT 1;" >> /Users/allenchenmac/fisher/memory/daily/supabase-keepalive.log 2>&1
 ```
 
 但這是 workaround，不是長久之計。生產環境請升級 Pro Plan。
