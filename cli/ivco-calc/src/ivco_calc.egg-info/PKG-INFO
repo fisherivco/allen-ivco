@@ -4,6 +4,7 @@ Version: 0.3.0
 Summary: IVCO calculation engine — three-tier calibration + three-stage DCF + Supabase storage
 Requires-Python: >=3.10
 Requires-Dist: click>=8.0
+Requires-Dist: certifi>=2024.0.0
 Provides-Extra: db
 Requires-Dist: psycopg2-binary>=2.9; extra == "db"
 Provides-Extra: dev

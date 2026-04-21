@@ -7,7 +7,7 @@ name = "ivco-calc"
 version = "0.3.0"
 description = "IVCO calculation engine — three-tier calibration + three-stage DCF + Supabase storage"
 requires-python = ">=3.10"
-dependencies = ["click>=8.0"]
+dependencies = ["click>=8.0", "certifi>=2024.0.0"]
 
 [project.optional-dependencies]
 db = ["psycopg2-binary>=2.9"]

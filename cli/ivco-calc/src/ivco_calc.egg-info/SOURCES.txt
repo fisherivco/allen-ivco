@@ -3,6 +3,7 @@ src/ivco_calc/__init__.py
 src/ivco_calc/cagr.py
 src/ivco_calc/cli.py
 src/ivco_calc/dcf.py
+src/ivco_calc/env_loader.py
 src/ivco_calc/owner_earnings.py
 src/ivco_calc/store.py
 src/ivco_calc/tools_registry.py
@@ -18,8 +19,11 @@ src/ivco_calc/fetchers/base.py
 src/ivco_calc/fetchers/fmp.py
 tests/test_analyze.py
 tests/test_cagr.py
+tests/test_code_review_fixes.py
 tests/test_dcf.py
+tests/test_env_loader.py
 tests/test_fetch.py
+tests/test_fmp_fix.py
 tests/test_integration.py
 tests/test_oe.py
 tests/test_store.py

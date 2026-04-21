@@ -8,7 +8,7 @@
 |------|-------|
 | **Status** | v0.2.0 Released — Phase 0.5a Complete |
 | **DNA** | `docs/ivco-dna.md` (project soul document) |
-| **Allen Framework** | `~/fisher/projects/allen-ivco/allen-framework-tsmc-owners-earning.md` |
+| **Allen Framework** | `~/fisher/projects/ivco/allen-framework-tsmc-owners-earning.md` |
 | **GitHub** | ConversionCrafter/allen-ivco |
 | **Domains** | ivco.io (primary) + ivco.ai (defense) |
 | **Brand** | IVCO Fisher (@ivco_fisher) — public persona |
@@ -109,18 +109,15 @@ If candidate 1 exists, use it directly without extra clarification.
 
 Primary design: `.inbox-digest.json` should be precomputed by background worker/hook.
 
-Run inbox watcher manually only when digest is missing or stale, and after major message-processing tasks:
+To detect unread messages, scan inbox JSON packets directly:
 
 ```bash
-python3 ~/fisher/projects/allen-ivco/scripts/codex_inbox_watcher.py
+ls ~/fisher/shared-state/inbox/codex-cli/*.json 2>/dev/null
 ```
 
-- Detects unread messages from **all senders** (Jane, Chi, Show, Allen).
-- Writes `.inbox-digest.json` and trigger metadata for lightweight startup consumption.
+- Scan `~/fisher/shared-state/inbox/codex-cli/` for unread packets per `shared-state/inbox/PROTOCOL.md`.
 - If unread messages exist, **read and process them before starting new work**.
-- Detection events are logged to `~/fisher/memory/debug-log/raw/codex-inbox-watcher.log`.
-- The watcher is detect-only: it alerts you to unread messages but does not modify them. You must read the actual JSON files to process messages.
-- **launchd worker** (`com.allen.codex-inbox-worker`) polls every 120s when machine is awake.
+- The `codex_inbox_watcher.py` script and the `watch` shell invoker were archived 2026-04-21 (Agent Bus purge S225). Do not restore — use inbox JSON packet glob pattern instead.
 
 ## Self-Improvement Protocol (Discipline 5)
 
