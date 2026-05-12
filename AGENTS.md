@@ -1,3 +1,14 @@
+---
+title: IVCO Codex Runtime Router
+status: ACTIVE
+version: 2026-05-12.1
+date: 2026-05-12
+owner: macmini codex-cli Chi
+canonical_path: projects/ivco/AGENTS.md
+mirror: obsidian/projects/ivco/root/AGENTS.md
+project: ivco
+---
+
 # IVCO — Intelligent Valuation Confidence Observatory
 
 > Integrating Graham, Buffett, Fisher, Munger into an AI-native value investing research engine.
@@ -12,6 +23,8 @@
 | **GitHub** | ConversionCrafter/allen-ivco |
 | **Domains** | ivco.io (primary) + ivco.ai (defense) |
 | **Brand** | IVCO Fisher (@ivco_fisher) — public persona |
+| **Codex Governance** | `docs/governance/codex-session-governance.md` |
+| **Cross-Project Index** | `~/fisher/projects/allen-ai-os/docs/ivco-context-index.md` |
 
 ## Core Formula
 
@@ -46,42 +59,61 @@ Integration:   MCP Servers + Claude Code + Codex
 - **Confidence Coefficient**: Conservative(0.8-1.0x) / Steady(1.0-1.5x) / Aggressive(1.5-2.5x) / Extreme(2.5x+) / Terminate(N/A)
 - **IV must be a RANGE**, never a single number
 
+## Codex Session Governance
+
+Read `docs/governance/codex-session-governance.md` before Codex session,
+handoff, document-governance, or cross-agent work in this repo.
+
+Canonical session commands are global Codex skills:
+
+- `$sc`: resume the global Codex lane and active handoff.
+- `$ss`: write a checkpoint handoff while keeping the Codex lane active.
+- `$save`: write the final handoff and close the Codex lane.
+
+Do not create project-local copies of these skills. IVCO-specific work is
+referenced from the global Codex handoff via this repo's task, plan, and
+governance files.
+
 ## Team & Communication
 
-**Constitution**: Read `~/fisher/shared-state/team-dna/constitution.md` at session start — shared principles all agents follow.
+**Constitution**: Read `~/fisher/shared-state/team-dna/constitution.md` when
+the task touches shared agent principles.
 
-**Inbox Protocol**: `~/fisher/shared-state/inbox/PROTOCOL.md` (v2.0)
+| Agent | Runtime | Owned Surface | Role |
+|-------|---------|---------------|------|
+| **Chi** | Codex CLI | `AGENTS.md`, Codex skills, Codex handoffs, Codex-owned tasks | Engineering executor, review, verification |
+| **Jane** | Claude Code | `CLAUDE.md`, `.claude/**`, Claude-owned handoffs | Project orchestration and Claude runtime governance |
+| **Hermes** | Hermes agent | `.hermes.md`, Hermes memory/runtime files | Hermes runtime governance |
+| **Kiro** | Kiro CLI | `docs/plans/kiro/**` | Kiro runtime handoffs and steering |
+| **Show** | Claude Desktop / Show lane | shared analysis and governance surfaces assigned by Allen | Strategy, critique, governance review |
+| **Fisher** | public persona | public-facing IVCO voice | American English brand voice |
 
-| Agent | Platform | Inbox Folder | Role |
-|-------|----------|-------------|------|
-| **Jane** | Claude Code (Opus) | `inbox/claude-code/` | Executive Secretary — orchestrator, sole write authority |
-| **Jack** (you) | Codex CLI (GPT) | `inbox/codex-cli/` | Third Agent — code review, optimization, verification |
-| **Chi** | Claude Code subagent (Sonnet) | _(via Jane)_ | Full-stack engineer — deep system integration |
-| **Show** | Claude Desktop (Claude) | `inbox/claude-desktop/` | Research & Strategy Advisor |
-| **Fisher** | _(not an agent)_ | — | External brand persona, American English |
-
-**Sending messages**: Write JSON to recipient's inbox folder. Use `~/fisher/tools/inbox-create.sh` when available, or write valid JSON per PROTOCOL.md format. Reply to Jane/Chi → `inbox/claude-code/`. Status must start as `"unread"`.
-
-**Autonomous processing** (per PROTOCOL v2.0): Low-risk messages (ACK, notes, status updates) → process without waiting for Allen. High-risk (rule changes, security) → escalate to Allen.
+Cross-runtime suggestions travel through `agent-talk-3round` and shared
+canonical files. In cmux-hosted collaboration, use a notice-only `cmux send`
+pointer plus `cmux send-key Enter`; keep payloads in shared JSONL transport,
+not terminal text.
 
 ## Blog Content (7 articles ready, pending Payload deploy)
 
 All articles written in English, Fisher's voice. Topics: Allen Framework, TSMC Case Study, Owner Earnings, Why IVCO, Three-Stage DCF, Confidence Coefficient, How IVCO Became an Intelligence.
 
-## Session Initialization
+## Session Start
 
-At **every session start**, before doing any work:
+For Codex sessions opened from `projects/ivco/`:
 
-1. `source ~/.config/env/github.env 2>/dev/null || true`
-2. `python3 ~/fisher/tools/codex-session-start-lite.py --mode startup`
-3. Act on the `>` headline line — that is your #1 priority.
-4. If pending replies > 0, handle them before other work.
+1. Use `$sc` when Allen asks to resume or continue the Codex lane.
+2. Read `docs/governance/codex-session-governance.md` for IVCO-specific Codex
+   session rules.
+3. Read `~/fisher/projects/allen-ai-os/docs/ivco-context-index.md` for current
+   IVCO status before broad project work.
+4. Load only the task-specific IVCO docs needed for the active change.
 
 Load deeper context on demand:
-- **L0** (always): headline + urgent counts + GitHub PAT + on-demand index
-- **L1** (when implementing): read full `codex-session-summary.md`
-- **L2** (governance only): `PROTOCOL.md` + `constitution.md`
-- **L3** (explicit need): historical logs, debug-log, archives
+- **L0**: this router + Codex session-governance doc.
+- **L1**: cross-project IVCO context index.
+- **L2**: domain docs such as `docs/ivco-dna.md`,
+  `allen-framework-tsmc-owners-earning.md`, and `docs/expert-manual-v2.md`.
+- **L3**: historical plans, reviews, archives, and raw evidence.
 
 ## Obsidian Workspace Path Contract
 
@@ -105,29 +137,27 @@ When user says `read 0today/<file>, continue`, prioritize these candidates:
 
 If candidate 1 exists, use it directly without extra clarification.
 
-## Inbox Watcher Protocol
+## Document Governance
 
-Primary design: `.inbox-digest.json` should be precomputed by background worker/hook.
+Before creating or modifying durable Markdown, follow local-first plus
+same-transaction Obsidian symlink mirror:
 
-To detect unread messages, scan inbox JSON packets directly:
+1. Read `~/fisher/projects/allen-ai-os/docs/governance/document-governance-index.md`.
+2. Read `~/fisher/projects/allen-ai-os/docs/governance/document-write-policy.md`.
+3. For document-family work, read
+   `~/fisher/projects/allen-ai-os/docs/governance/context-entropy-management-governance.md`.
+4. Use the IVCO mappings in `docs/governance/codex-session-governance.md`.
+5. Never write durable Markdown directly under `obsidian/`.
 
-```bash
-ls ~/fisher/shared-state/inbox/codex-cli/*.json 2>/dev/null
-```
+## Self-Improvement Protocol
 
-- Scan `~/fisher/shared-state/inbox/codex-cli/` for unread packets per `shared-state/inbox/PROTOCOL.md`.
-- If unread messages exist, **read and process them before starting new work**.
-- The `codex_inbox_watcher.py` script and the `watch` shell invoker were archived 2026-04-21 (Agent Bus purge S225). Do not restore — use inbox JSON packet glob pattern instead.
+After a correction from Allen or a verified repeated defect:
 
-## Self-Improvement Protocol (Discipline 5)
-
-After ANY correction from Allen or Jane:
-1. **Immediately** add an entry to `~/fisher/shared-state/team-dna/jack-lessons.md`
-2. Format: `### [date] [category]` → Mistake / Correct / Lesson
-3. Verbally confirm: "Lesson recorded in jack-lessons.md"
-4. Same pattern 3+ times → escalate to PDCA review
-
-> This is NOT optional. Not "remember for next time" — write to file NOW.
+1. Record the durable pattern in the canonical Codex/shared improvement surface
+   required by the active skill or workflow.
+2. Use debug-log artifacts for defects when the active workflow requires them.
+3. If the finding affects a peer runtime, send a bounded `agent-talk-3round`
+   suggestion instead of editing that runtime's private files.
 
 ## Development Rules
 
@@ -136,20 +166,18 @@ After ANY correction from Allen or Jane:
 2. **Plan your approach** — identify scope, risk areas, test coverage gaps
 3. **Execute with verification** — atomic changes, verify after each step
 4. **Test before reporting** — run tests and include evidence in your report
-5. **Record lessons** — update jack-lessons.md with patterns found
+5. **Record lessons** — write durable lessons only to the active workflow's
+   canonical improvement surface.
 
-### Default Subagent Strategy (Allen directive, 2026-02-25)
-- Mandatory kickoff for every incoming task source:
-  - Allen direct assignment in this session
-  - Agent Bus / inbox-delivered task
-- Before implementation, split work into lanes:
-  - `Lane A`: primary delivery work
-  - `Lane B`: agent-bus/inbox sync and verification
-- Run independent lanes in parallel when possible, then merge with one checkpoint:
-  - commands run
-  - test/verification evidence
-  - risks and follow-up
-- If the task is truly atomic, still perform kickoff and record `single-lane fast path` rationale.
+### Collaboration Strategy
+
+- Keep Codex critical-path work local when the next step depends on it.
+- Use Codex subagents only when the active runtime contract allows it and the
+  delegated slice has a bounded, non-overlapping scope.
+- Use `agent-talk-3round` for peer LLM collaboration and runtime-boundary
+  suggestions.
+- Do not edit `.claude/**`, `.hermes.md`, or `docs/plans/kiro/**` from Codex
+  unless Allen explicitly delegates that cross-runtime maintenance task.
 
 ### Code Standards
 - Conventional Commits: `fix/feat/refactor/docs/test/chore`
