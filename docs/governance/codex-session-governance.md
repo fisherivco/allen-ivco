@@ -117,6 +117,13 @@ standing write surface. Do not edit them directly. Handle them only through a
 dedicated triage/rematerialization plan that preserves content and replaces the
 read path with symlinks.
 
+## Field Reports
+
+- `docs/governance/ivco-kiro-agent-talk-field-report-20260512.md` records the
+  first successful IVCO-directory `agent-talk-3round` handshake between
+  `macmini codex-cli Chi` and `kiro-cli`, including cmux surface selection,
+  JSONL payload discipline, and reusable Kiro participation rules.
+
 ## Verification
 
 Use these checks before claiming IVCO Codex governance work is complete:
