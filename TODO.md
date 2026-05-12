@@ -98,7 +98,7 @@ Position Management:
 如果遇到問題：
 ```bash
 # 檢查 Supabase 連接
-psql "postgresql://postgres:KU23MCfCAuQOb8kS@db.gacttxnlfigoltfjdjmt.supabase.co:5432/postgres" -c "\dt"
+psql "$DATABASE_URL" -c "\dt"  # DSN redacted — use DATABASE_URL env var from ~/.config/env/supabase.env
 
 # 檢查環境變量
 cat .env | grep DATABASE_URL
