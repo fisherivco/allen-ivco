@@ -14,12 +14,15 @@ project: ivco
 
 ## Active Handoff
 
-(none)
+[[2026-05-12-2138-kiro-s263-final]]
+Path: `projects/ivco/docs/plans/kiro/handoffs/2026-05-12-2138-kiro-s263-final.md`
 
 ## Active Plans & Checklists
 
-(none)
+(none — S263 tasks complete)
 
 ## Prior Handoffs
 
-(none yet)
+| File | Session | Type | Date |
+|---|---|---|---|
+| [[2026-05-12-2138-kiro-s263-final]] | S263 | final | 2026-05-12 |
