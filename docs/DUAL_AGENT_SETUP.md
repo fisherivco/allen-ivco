@@ -221,7 +221,7 @@ claude mcp add codex --scope user -- codex mcp-server
 
 | Repo | Remote URL | Protocol |
 |------|-----------|----------|
-| allen-ivco | `https://github.com/ConversionCrafter/allen-ivco.git` | HTTPS |
+| allen-ivco | `https://github.com/fisherivco/allen-ivco.git` | HTTPS |
 | obsidian-public | `https://github.com/ConversionCrafter/obsidian-public.git` | HTTPS (PRIVATE) |
 
 ---
