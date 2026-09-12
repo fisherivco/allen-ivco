@@ -13,7 +13,7 @@
 | **DNA Document** | `docs/ivco-dna.md` — 21 篇研究蒸餾的專案靈魂文件（863 行） |
 | **Path** | `/Users/fisherivco/fisher/projects/ivco/` |
 | **Domains** | ivco.io (primary) + ivco.ai (defense) |
-| **GitHub** | ConversionCrafter/allen-ivco |
+| **GitHub** | fisherivco/allen-ivco |
 
 ## Core Philosophy
 
@@ -476,6 +476,6 @@ ivco/
 | 2026-02-04 | 採用 Tab 式 UI 設計 | Companies Collection 分為 7 個 Tab，避免單一頁面過於擁擠，提升使用體驗 |
 | 2026-02-04 | 實作預測對帳單機制 | Commitments → Integrity Scores 的完整生命週期追蹤，支援管理層執行力評估 |
 | 2026-02-04 | 強制輸出每股價值 | iv_per_share_low/high 標記為必填，避免「只看總市值」的系統性錯誤 |
-| 2026-02-09 | 品牌統一為 IVCO | IVC Calculator → IVCO (Intrinsic Value Confidence Observatory)。IVC 保留為方法論名稱，IVCO 為系統/品牌名。目錄 allen-ivc → allen-ivco → ivco，GitHub repo: ConversionCrafter/allen-ivco |
+| 2026-02-09 | 品牌統一為 IVCO | IVC Calculator → IVCO (Intrinsic Value Confidence Observatory)。IVC 保留為方法論名稱，IVCO 為系統/品牌名。目錄 allen-ivc → allen-ivco → ivco；當時 GitHub repo: ConversionCrafter/allen-ivco，現行 canonical repo: fisherivco/allen-ivco |
 | 2026-02-09 | IVCO Fisher 品牌人設確立 | Fisher = 對外品牌人格，Jane = 協助 Allen 打造品牌的人（對內）。Fisher 致敬 Philip Fisher，生日 1996-11-08 |
 | 2026-02-09 | 域名購買 ivco.io + ivco.ai | ivco.io 為主站，ivco.ai 為防禦性購買 |
