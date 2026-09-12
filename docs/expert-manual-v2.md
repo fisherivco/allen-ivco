@@ -95,7 +95,7 @@ Rules:
 ### Vercel Deployment SOP
 
 **Configuration**:
-- Repository: `ConversionCrafter/allen-ivco`
+- Repository: `fisherivco/allen-ivco`
 - Root Directory: `cms/`
 - Framework: Next.js
 - Build Command: `pnpm build`
