@@ -19,12 +19,12 @@ project: ivco
 |------|-------|
 | **Status** | v0.2.0 Released — Phase 0.5a Complete |
 | **DNA** | `docs/ivco-dna.md` (project soul document) |
-| **Allen Framework** | `~/fisher/projects/ivco/allen-framework-tsmc-owners-earning.md` |
-| **GitHub** | ConversionCrafter/allen-ivco |
+| **Allen Framework** | `allen-framework-tsmc-owners-earning.md` |
+| **GitHub** | `fisherivco/allen-ivco` |
 | **Domains** | ivco.io (primary) + ivco.ai (defense) |
 | **Brand** | IVCO Fisher (@ivco_fisher) — public persona |
 | **Codex Governance** | `docs/governance/codex-session-governance.md` |
-| **Cross-Project Index** | `~/fisher/projects/allen-ai-os/docs/ivco-context-index.md` |
+| **Cross-Project Index** | `fisherivco/allen-ai-os:docs/ivco-context-index.md` |
 
 ## Core Formula
 
@@ -76,8 +76,9 @@ governance files.
 
 ## Team & Communication
 
-**Constitution**: Read `~/fisher/shared-state/team-dna/constitution.md` when
-the task touches shared agent principles.
+**Constitution**: use `fisherivco/fisher:shared-state/team-dna/constitution.md`
+when the task touches shared agent principles. A local checkout is only a
+runtime projection of that repository-owned state.
 
 | Agent | Runtime | Owned Surface | Role |
 |-------|---------|---------------|------|
@@ -104,8 +105,8 @@ For Codex sessions opened from `projects/ivco/`:
 1. Use `$sc` when Allen asks to resume or continue the Codex lane.
 2. Read `docs/governance/codex-session-governance.md` for IVCO-specific Codex
    session rules.
-3. Read `~/fisher/projects/allen-ai-os/docs/ivco-context-index.md` for current
-   IVCO status before broad project work.
+3. Read `fisherivco/allen-ai-os:docs/ivco-context-index.md` from GitHub canonical
+   repository state for current IVCO status before broad project work.
 4. Load only the task-specific IVCO docs needed for the active change.
 
 Load deeper context on demand:
@@ -115,7 +116,11 @@ Load deeper context on demand:
   `allen-framework-tsmc-owners-earning.md`, and `docs/expert-manual-v2.md`.
 - **L3**: historical plans, reviews, archives, and raw evidence.
 
-## Obsidian Workspace Path Contract
+## Optional Local/Obsidian Workspace Path Contract
+
+Use this section only when the task actually requires the local Obsidian
+projection. These aliases are runtime conveniences, not repository authority,
+and their absence does not block otherwise authorized GitHub work.
 
 Known alias contract for Allen workspace:
 - `obsidian/allen/...` -> `~/fisher/obsidian/allen/...`
@@ -139,15 +144,22 @@ If candidate 1 exists, use it directly without extra clarification.
 
 ## Document Governance
 
-Before creating or modifying durable Markdown, follow local-first plus
-same-transaction Obsidian symlink mirror:
+Apply the inherited global GitHub source-of-truth rule. For repo-owned IVCO
+state, `fisherivco/allen-ivco` on GitHub is canonical; local filesystem and
+Obsidian surfaces are downstream working-copy/projection surfaces. Their
+absence may block only an action whose task-specific rule genuinely requires
+that local capability.
 
-1. Read `~/fisher/projects/allen-ai-os/docs/governance/document-governance-index.md`.
-2. Read `~/fisher/projects/allen-ai-os/docs/governance/document-write-policy.md`.
+For durable Markdown work:
+
+1. Read `fisherivco/allen-ai-os:docs/governance/document-governance-index.md`.
+2. Read `fisherivco/allen-ai-os:docs/governance/document-write-policy.md`.
 3. For document-family work, read
-   `~/fisher/projects/allen-ai-os/docs/governance/context-entropy-management-governance.md`.
+   `fisherivco/allen-ai-os:docs/governance/context-entropy-management-governance.md`.
 4. Use the IVCO mappings in `docs/governance/codex-session-governance.md`.
-5. Never write durable Markdown directly under `obsidian/`.
+5. Do not treat `obsidian/` as a competing canonical write surface. Pending
+   projection or reconcile debt belongs in the owning GitHub Issue rather than
+   a second runtime-created control plane.
 
 ## Self-Improvement Protocol
 
