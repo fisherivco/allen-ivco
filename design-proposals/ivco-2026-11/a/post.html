@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confidence Coefficient: Why a Range, Not a Number — IVCO Fisher</title>
+<meta name="description" content="IVCO Fisher: independent value investing research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF0EC; --paper-2:#E3E7E1; --ink:#15202B; --ink-2:#3B4753; --rule:#B7BEB8; --claret:#7E2530; --moss:#2F5A4A;
+  --serif:"Newsreader","Iowan Old Style",Georgia,serif; --sans:"Hanken Grotesk",system-ui,sans-serif;
+  --s-1:.875rem; --s0:1.125rem; --s1:1.375rem; --s2:1.75rem; --s3:2.5rem; --s4:4.25rem;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scrollbar-color:var(--ink-2) var(--paper-2)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--s0)/1.62 var(--serif);font-optical-sizing:auto;overflow-wrap:break-word;text-rendering:optimizeLegibility}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.2em}
+a:hover{color:var(--claret)}
+:focus-visible{outline:2px solid var(--claret);outline-offset:3px}
+.wrap{max-width:76rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;background:var(--ink);color:var(--paper);padding:.5rem 1rem;z-index:9}
+header.top{border-bottom:2px solid var(--ink)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-top:1.1rem;padding-bottom:.9rem}
+.mark{font:600 1.5rem/1 var(--serif);letter-spacing:-.01em;text-decoration:none}
+nav{font:500 var(--s-1)/1 var(--sans);display:flex;gap:1.5rem}
+nav a{text-decoration:none;padding:.5rem 0}nav a:hover,nav a[aria-current]{text-decoration:underline}
+.meta{font:400 var(--s-1)/1.4 var(--sans);color:var(--ink-2)}
+.statement{padding:clamp(3rem,9vw,7rem) 0 clamp(2.5rem,6vw,4.5rem)}
+.statement h1{margin:0;font:500 6rem/.98 var(--serif);letter-spacing:-.03em;text-wrap:balance}
+.statement h1 span{display:block}
+.statement h1 span:nth-child(n+3){color:var(--moss)}
+.statement p{max-width:34rem;margin:2rem 0 0;color:var(--ink-2);font-size:var(--s1);line-height:1.5}
+.front{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,5vw,4.5rem);border-top:1px solid var(--ink);padding-top:2rem}
+.lead h2{margin:.4rem 0 1rem;font:600 3rem/1.06 var(--serif);letter-spacing:-.02em;text-wrap:balance}
+.lead h2 a{text-decoration:none}.lead h2 a:hover{text-decoration:underline}
+.lead p.meta,.index p.meta{font:400 var(--s-1)/1.4 var(--sans);color:var(--ink-2);margin:0}
+.lead p{font-size:var(--s1);line-height:1.55;margin:0 0 1.25rem;max-width:38rem}
+.read{font:600 var(--s-1)/1 var(--sans);text-decoration:underline;text-underline-offset:.3em}
+.index{border-left:1px solid var(--rule);padding:.5rem 0 .5rem 2rem}
+.index h2{margin:0 0 .25rem;font:600 var(--s1)/1.2 var(--serif)}
+.index ol{list-style:none;margin:0;padding:0}
+.index li{padding:1.1rem 0;border-top:1px solid var(--rule)}
+.index li:first-child{border-top:0}
+.index h3{margin:.25rem 0 .4rem;font:600 var(--s1)/1.2 var(--serif);text-wrap:balance}
+.index h3 a{text-decoration:none}.index h3 a:hover{text-decoration:underline}
+.index p{margin:0;font-size:1rem;line-height:1.5;color:var(--ink-2)}
+.about{margin:clamp(3rem,7vw,5.5rem) 0 0;border-top:2px solid var(--ink);padding:2rem 0 4rem;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,5vw,4.5rem)}
+.about h2{margin:0;font:600 var(--s2)/1.1 var(--serif);text-wrap:balance}
+.about p{margin:0;font-size:var(--s1);line-height:1.55;max-width:38rem}
+footer.bot{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
+footer.bot p{margin:0}
+/* article */
+.piece{padding-top:clamp(2.5rem,6vw,4.5rem);padding-bottom:4rem}
+.piece-head{max-width:52rem}
+.piece-head h1{margin:.4rem 0 1.25rem;font:600 4rem/1.03 var(--serif);letter-spacing:-.025em;text-wrap:balance}
+.deck{font-size:var(--s1);line-height:1.55;color:var(--ink-2);margin:0 0 1.5rem}
+.byline{border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:.75rem 0;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.cols{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,38rem);gap:clamp(2rem,6vw,5.5rem);justify-content:start}
+.contents{display:block;position:sticky;top:1.5rem;align-self:start;font:400 var(--s-1)/1.4 var(--sans)}
+.contents h2{margin:0 0 .75rem;font:600 var(--s-1)/1.2 var(--sans)}
+.contents ol{list-style:none;padding:0;margin:0}.contents li{padding:.35rem 0;border-top:1px solid var(--rule)}
+.contents a{text-decoration:none}.contents a:hover{text-decoration:underline}
+.prose{font-size:1.1875rem;line-height:1.68}
+.prose p{margin:0 0 1.15em}
+.prose h2{margin:2.6em 0 .7em;font:600 var(--s2)/1.12 var(--serif);letter-spacing:-.015em;text-wrap:balance;scroll-margin-top:1rem}
+.prose h3{margin:2em 0 .6em;font:600 var(--s1)/1.2 var(--serif);text-wrap:balance}
+.prose ul{margin:0 0 1.3em;padding-left:1.25em}.prose li{margin:0 0 .6em;padding-left:.25em}
+.prose strong{font-weight:600}
+.formula{margin:1.6em 0;padding:1rem 1.25rem;border:1px solid var(--ink);font:500 1.0625rem/1.4 var(--sans)}
+table.spec{width:100%;border-collapse:collapse;margin:1.5em 0 2em;font:400 1rem/1.4 var(--sans);font-variant-numeric:tabular-nums}
+table.spec caption{text-align:left;font-weight:600;padding-bottom:.6rem}
+table.spec th,table.spec td{padding:.6rem .5rem;border-top:1px solid var(--rule);text-align:left}
+table.spec thead th{border-top:2px solid var(--ink);font-weight:600}
+table.spec tbody th{font-weight:400}table.spec td{text-align:right;font-weight:600}
+.prose h2#frequently-asked-questions~h3{font-size:1.25rem}
+@media (max-width:52rem){
+  .lead h2{font-size:2.25rem}
+  .piece-head h1{font-size:2.5rem}
+  .statement h1{font-size:3rem}
+  .front,.about,.cols{grid-template-columns:minmax(0,1fr)}
+  .index{border-left:0;padding-left:0;border-top:2px solid var(--ink);padding-top:1.5rem}
+  .contents{position:static}
+  .statement p{font-size:1.25rem}
+  .prose{font-size:1.125rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+<a class="mark" href="index.html">IVCO Fisher</a>
+<nav aria-label="Primary"><a href="index.html">Research</a><a href="index.html#about">About</a></nav>
+</div></header>
+<main id="main"><article class="wrap piece">
+<header class="piece-head"><p class="meta"><a href="index.html">Research</a>, Framework</p>
+<h1>Confidence Coefficient: Why a Range, Not a Number</h1>
+<p class="deck">Most valuation models hand you a single number and call it &quot;intrinsic value.&quot; The Confidence Coefficient is a forward-looking multiplier that transforms that false precision into an honest range — one that adjusts dynamically as new evidence arrives, because conviction about a company&#x27;s future isn&#x27;t a switch you flip. It&#x27;s a dial you turn.</p>
+<p class="meta byline">By IVCO Fisher. February 16, 2026. 17 min read.</p></header>
+<div class="cols">
+<nav class="contents" aria-label="In this article"><h2>In this article</h2><ol><li><a href="#the-single-number-trap">The Single-Number Trap</a></li><li><a href="#what-is-the-confidence-coefficient">What Is the Confidence Coefficient?</a></li><li><a href="#the-grading-system-four-tiers-plus-one-kill-switch">The Grading System: Four Tiers (Plus One Kill Switch)</a></li><li><a href="#why-dynamic-not-static">Why Dynamic, Not Static?</a></li><li><a href="#tsmc-the-confidence-coefficient-in-action">TSMC: The Confidence Coefficient in Action</a></li><li><a href="#the-hidden-champion-story">The Hidden Champion Story</a></li><li><a href="#building-it-into-ivco">Building It Into IVCO</a></li><li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li></ol></nav>
+<div class="prose">
+<h2 id="the-single-number-trap">The Single-Number Trap</h2>
+<p>Here's a confession: I used to love spreadsheets that spit out one number.</p>
+<p>"TSMC is worth $487.32 per share." Period. Done. Go buy it or don't. There's something deeply satisfying about that kind of certainty. It feels scientific. It feels right.</p>
+<p>Except it's not.</p>
+<p>Think about what that single number implies. It assumes you know — with decimal-point precision — how fast a company will grow next year, and the year after that, and for the next decade. It assumes nothing unexpected will happen. No new competitors. No supply chain disruptions. No breakthroughs. No management changes.</p>
+<p>In other words, it assumes you can predict the future. And the last time I checked, nobody can.</p>
+<p>Buffett knew this. That's why he kept saying he'd rather be "vaguely right than precisely wrong." Graham built an entire career on the idea that markets are unpredictable in the short term. Fisher spent his life learning that qualitative signals — management quality, product pipelines, competitive dynamics — matter as much as the spreadsheet.</p>
+<p>But here's the problem: "vaguely right" is hard to operationalize. You can't build a system around a shrug and a gut feeling. You need a framework that takes that philosophical insight and turns it into something you can actually compute.</p>
+<p>That's what the Confidence Coefficient does.</p>
+<h2 id="what-is-the-confidence-coefficient">What Is the Confidence Coefficient?</h2>
+<p>Let me keep it simple.</p>
+<p>The Confidence Coefficient (CC) is a multiplier applied to a company's historical Owner Earnings CAGR. It reflects your forward-looking conviction about whether that company will grow faster, slower, or about the same as its historical track record.</p>
+<p class="formula">Adjusted CAGR = Historical Owner Earnings CAGR × CC</p>
+<p>If a company's historical CAGR is 17.66% and your CC is 1.2x, your adjusted CAGR becomes 21.19%. If your CC is 1.5x, it's 26.49%.</p>
+<p>Notice what happened: you didn't get a single growth rate. You got a range. And that range feeds directly into a Three-Stage DCF that produces an intrinsic value range — not a point estimate.</p>
+<p>This is deliberate. The CC exists precisely because the future is uncertain, and pretending otherwise is the most dangerous thing a value investor can do.</p>
+<p>But — and this is crucial — the CC isn't just a number you pull out of thin air. It has a grading system. It has escalating evidence requirements. And it can go down, not just up.</p>
+<h2 id="the-grading-system-four-tiers-plus-one-kill-switch">The Grading System: Four Tiers (Plus One Kill Switch)</h2>
+<p>Not all convictions are created equal. A company building 10 new factories with a flawless execution record deserves a different CC than a company whose CEO just got caught fudging numbers. The grading system makes this explicit.</p>
+<h3>Conservative (0.8x - 1.0x)</h3>
+<p><strong>When you use it:</strong> Management integrity is questionable, competitive threats are emerging, or the business faces headwinds that could slow historical growth.</p>
+<p><strong>Evidence required:</strong> Basic financial analysis. You're essentially saying, "I think this company will grow slower than its track record suggests." Maybe a competitor is entering the market. Maybe margins are compressing. Maybe the CEO made promises and didn't deliver.</p>
+<p><strong>What it means:</strong> A CC below 1.0 is a yellow flag. You're not bearish enough to stop analyzing — that's what Terminate is for — but you're saying the historical CAGR probably overstates what's coming. This is Munger's inversion at work: what would make this company grow slower?</p>
+<p>Here's a scenario most models ignore entirely. Imagine a component manufacturer with a solid 15% historical CAGR. Then you learn that three competitors are building factories with comparable technology. The barriers to entry aren't as high as you thought. A price war is coming — maybe not this year, but within three to five years.</p>
+<p>Most DCF models would still use that 15% growth rate and tell you everything's fine. The CC says: multiply by 0.8. Your adjusted CAGR drops to 12%. Your intrinsic value range shifts downward. And suddenly, a stock that looked like a bargain has a much thinner margin of safety.</p>
+<p>That's not pessimism. That's realism.</p>
+<h3>Steady (1.0x - 1.5x)</h3>
+<p><strong>When you use it:</strong> Management has 100% integrity — they say what they'll do, and they do what they say. The business has stable-to-strong expansion plans backed by visible evidence.</p>
+<p><strong>Evidence required:</strong> This is where it gets serious. You need more than clean financials. You need:</p>
+<ul>
+<li><strong>Commitment tracking:</strong> Has management delivered on past promises? Capital expenditure plans announced two years ago — did they actually build those facilities on schedule?</li>
+<li><strong>Capacity verification:</strong> Are the expansion plans real and measurable? Not "we hope to grow" but "we are building X facilities with Y capacity by Z date."</li>
+</ul>
+<p><strong>What it means:</strong> A CC of 1.0x says, "History will repeat itself." A CC of 1.5x says, "History will repeat itself, and then some — because I can see concrete evidence of acceleration." Most well-run companies with honest management and steady growth fall into this tier.</p>
+<h3>Aggressive (1.5x - 2.5x)</h3>
+<p><strong>When you use it:</strong> The company is in a major expansion phase — new factories, new markets, new product lines — with demonstrated technology leadership that creates a defensible moat.</p>
+<p><strong>Evidence required:</strong> This tier demands hard evidence. You're claiming the company will grow 50% to 150% faster than its historical rate. That's a big claim, and it needs big proof:</p>
+<ul>
+<li><strong>CapEx timelines:</strong> Not just "we plan to invest" but detailed construction schedules, equipment orders, and commissioning dates.</li>
+<li><strong>Supply chain verification:</strong> Are suppliers scaling up to meet this company's expansion? Are they signing long-term contracts? When a company's suppliers are investing billions to serve it, that's a signal you can't get from a spreadsheet.</li>
+<li><strong>Technology moat:</strong> Is the company's competitive advantage widening or narrowing? In semiconductor manufacturing, for instance, the gap between leading-edge and trailing-edge producers has been growing, not shrinking.</li>
+</ul>
+<p><strong>What it means:</strong> You're making a high-conviction bet that this company's best years are ahead of it. That's fine — but you'd better have the receipts.</p>
+<h3>Extreme (2.5x+)</h3>
+<p><strong>When you use it:</strong> The company is a hidden champion — undervalued by the market, with massive verified expansion that the crowd hasn't noticed yet.</p>
+<p><strong>Evidence required:</strong> This is the highest bar. You need all of the following:</p>
+<ul>
+<li><strong>Annual report disclosure:</strong> The expansion plan must be disclosed in official filings — not analyst speculation, not management "guidance," but black-and-white commitments in the annual report.</li>
+<li><strong>100% execution track record:</strong> Every major commitment this management team has made in the past — delivered. On time. On budget. No exceptions.</li>
+<li><strong>Written thesis required:</strong> You must document why you believe this CC is justified. Not a mental note. Not a feeling. A written, structured argument that you can revisit and challenge.</li>
+</ul>
+<p><strong>What it means:</strong> Extreme CC is rare. It should be. You're saying this company will grow at 2.5 times or more its historical rate. The only way that's defensible is if the evidence is overwhelming and the market is clearly mispricing it.</p>
+<p>I'll share a real case study below that earned this rating.</p>
+<h3>Terminate (N/A)</h3>
+<p><strong>When you use it:</strong> Management integrity has been breached. Period.</p>
+<p><strong>Evidence required:</strong> One strike. One lie. One instance of cooking the books, misleading shareholders, or breaking commitments in a way that reveals dishonest character.</p>
+<p><strong>What it means:</strong> Analysis stops. You don't calculate a CC. You don't run the DCF. You walk away. This is the Allen Framework's version of Munger's most famous piece of advice: "All I want to know is where I'm going to die, so I'll never go there."</p>
+<p>Integrity isn't a spectrum. A management team that lies to you once will lie to you again. The CC grading system makes this binary: 100% integrity or you're done.</p>
+<h2 id="why-dynamic-not-static">Why Dynamic, Not Static?</h2>
+<p>Here's where the Confidence Coefficient separates itself from every other valuation adjustment I've seen.</p>
+<p>Most analysts set their assumptions once and forget about them. They build a model in January, present it to their committee, and don't touch it until next January. Meanwhile, the company announces a $20 billion fab, the CEO retires, a competitor stumbles, and the geopolitical landscape shifts.</p>
+<p>The CC is designed to move.</p>
+<p>New earnings call reveals accelerated capex timeline? CC goes up. Management misses a delivery commitment for the first time? CC goes down. A competitor announces a breakthrough that narrows the technology gap? CC goes down. Insider buying spikes after a price decline? Maybe CC goes up — if the other evidence supports it.</p>
+<p>This is Fisher's scuttlebutt method, quantified. Fisher spent his career talking to suppliers, customers, employees — anyone who could give him a signal about a company's real trajectory. The CC takes those signals and converts them into a mathematical input.</p>
+<p>And because the CC feeds directly into a Three-Stage DCF, every adjustment ripples through the entire valuation. Change the CC, and your intrinsic value range shifts. Automatically.</p>
+<p>That's the system we're building at IVCO (Intrinsic Value Confidence Observatory). Not a static spreadsheet. A living, breathing valuation engine that updates as the world changes.</p>
+<h2 id="tsmc-the-confidence-coefficient-in-action">TSMC: The Confidence Coefficient in Action</h2>
+<p>Let's make this concrete with a company I've studied for years: TSMC.</p>
+<h3>The historical facts</h3>
+<p>TSMC's Owner Earnings CAGR from 2013 to 2022 is 17.66%. That's nine years of data, calculated using the Allen Framework's Owner Earnings formula with a 20% Maintenance Ratio — because roughly 80% of TSMC's massive capital expenditures go toward building new leading-edge fabs, not maintaining old ones.</p>
+<p>The Reality Coefficient for both endpoint years is 100% — TSMC's books are clean. No one-time gains or losses distorting the numbers.</p>
+<p>So: 17.66% historical growth. Strong, but historical.</p>
+<p>The forward-looking question: what CC do we assign?</p>
+<p>Here's where judgment meets evidence:</p>
+<ul>
+<li><strong>Management integrity:</strong> TSMC's leadership has one of the strongest say-do track records in the semiconductor industry. When they announce a technology node timeline, they hit it. When they commit to capex, they spend it. 100% integrity. No question.</li>
+<li><strong>Expansion evidence:</strong> As of our analysis, TSMC had 10+ new factory projects in various stages of planning and construction — spanning leading-edge nodes across multiple geographies. This isn't speculative. It's disclosed. It's funded. It's happening.</li>
+<li><strong>Technology moat:</strong> The gap between TSMC and its nearest competitors at the leading edge has been widening. The number of companies that can manufacture at 3nm and below can be counted on one hand — and TSMC leads.</li>
+<li><strong>Demand visibility:</strong> Every major chip designer — from AI accelerators to mobile processors — needs TSMC's advanced nodes. The secular demand trend is clear.</li>
+</ul>
+<h3>The verdict: CC = 1.2x to 1.5x (Steady tier)</h3>
+<p>Why not Aggressive? Because discipline matters. Even with all this evidence, we're talking about one of the world's largest semiconductor companies, operating in a cyclical industry with geopolitical risks. The Steady tier — 1.2x to 1.5x — says: "We believe TSMC will modestly outperform its historical growth rate, backed by concrete expansion plans and management credibility."</p>
+<h3>The math</h3>
+<table class="spec"><caption>TSMC valuation parameters, as published</caption><thead><tr><th scope="col">Parameter</th><th scope="col">Value</th></tr></thead><tbody><tr><th scope="row">Historical OE CAGR</th><td>17.66%</td></tr><tr><th scope="row">CC Range</th><td>1.2x - 1.5x</td></tr><tr><th scope="row">Adjusted CAGR (Stage 1)</th><td>21.19% - 26.49%</td></tr><tr><th scope="row">Stage 2 CAGR (Yrs 6-10)</th><td>15%</td></tr><tr><th scope="row">Stage 3 (Terminal)</th><td>5%</td></tr><tr><th scope="row">Discount Rate</th><td>8%</td></tr><tr><th scope="row">IV per Share</th><td>NT$4,565 - NT$5,639</td></tr></tbody></table>
+<p>Not a single number. A range. And that range reflects a specific, documented level of conviction that can be updated the moment new information arrives.</p>
+<p>If TSMC's next earnings call reveals a capex delay? CC shifts toward 1.2x. If they announce a breakthrough in 1.4nm packaging? CC might nudge toward 1.5x. The range breathes with reality.</p>
+<h2 id="the-hidden-champion-story">The Hidden Champion Story</h2>
+<p>Let me take you back to a case from early in my career that still shapes how I think about the Confidence Coefficient.</p>
+<p>I found a precision component manufacturer — a Tier 2 supplier buried deep in the supply chains of some of the world's biggest brands. The kind of company Wall Street doesn't cover and retail investors don't know exists.</p>
+<p>But the numbers were extraordinary. Sky-high gross margins. Accounts receivable turning over faster than most companies can send an invoice. Inventory management that would make a logistics professor weep with joy. And a dominant position in a niche where switching costs were enormous.</p>
+<p>Then I opened the annual report.</p>
+<p>Right there, in black and white, the company disclosed that it was building production capacity three times its current size. Not "exploring options." Not "considering expansion." Building. Factories under construction. Equipment on order. Timelines published.</p>
+<p>The market? Crickets. The stock barely moved.</p>
+<p>Why? Because the market prices what it can see in the next quarter's earnings. And until those new factories are online and producing revenue, the financials look... fine. Good, even. But not extraordinary.</p>
+<p>Here's the thing: building factories takes time. Two years, sometimes three. During that period, the income statement doesn't change much. But the capacity of the business — its future earning power — is transforming underneath the surface.</p>
+<p>This is exactly the kind of signal the Confidence Coefficient is designed to capture.</p>
+<p>Historical CAGR? Solid. Management track record on execution? Impeccable — 100% delivery on every prior commitment. Annual report disclosure of 3x capacity expansion? Verified. Written thesis documenting the investment case? Required at the Extreme tier, and I had one.</p>
+<p>CC = 2.5x to 3.0x.</p>
+<p>The intrinsic value range that came out of the DCF was so far above the market price that the margin of safety was almost absurd. And over the following years, as those factories came online and revenue tripled — just as the annual report had telegraphed — the stock price caught up to reality.</p>
+<p>This is what happens when you combine Fisher's investigative rigor with a systematic framework. The information was public. It was in the annual report. Anyone could have read it. But almost nobody did — because the market was staring at the next quarter, not the next decade.</p>
+<p>The Extreme tier exists for moments like this. But it demands the highest burden of proof: annual report disclosure, a perfect execution record, and a written thesis you're willing to defend. Because a 2.5x+ CC is a bold claim, and bold claims require ironclad evidence.</p>
+<h2 id="building-it-into-ivco">Building It Into IVCO</h2>
+<p>Everything I've described — the tiers, the evidence requirements, the dynamic adjustments — is being engineered into IVCO.</p>
+<p>Here's what the system tracks, all from public information:</p>
+<ul>
+<li><strong>Capital expenditure announcements:</strong> New factory filings, equipment purchase disclosures, construction permits. When a company commits capital, IVCO records the commitment and tracks execution against timeline.</li>
+<li><strong>Management say-do ratio:</strong> Promises made in earnings calls and annual reports are matched against actual outcomes. Delivered on time? Score goes up. Missed a deadline? Score goes down. Integrity is tracked quantitatively, not assumed.</li>
+<li><strong>Competitive dynamics:</strong> When a competitor announces expansion in the same space, IVCO flags the potential pricing pressure. When barriers to entry shift, the CC adjusts downward.</li>
+<li><strong>Insider transactions:</strong> Directors and officers buying their own stock — especially after a price decline — is a signal. Not conclusive on its own, but combined with strong fundamentals and expansion evidence, it reinforces conviction.</li>
+</ul>
+<p>The beauty of this approach is that it turns Fisher's qualitative "scuttlebutt" into structured data. Instead of relying on phone calls and personal networks, IVCO monitors the public record continuously and surfaces the signals that matter.</p>
+<p>And because the CC feeds into the Three-Stage DCF automatically, every signal that shifts the CC produces an updated intrinsic value range. In real-time.</p>
+<p>No analyst visit required. No quarterly model rebuild. Just a system that watches, measures, and adjusts — the way Graham, Buffett, Fisher, and Munger always said investing should be done, but never had the technology to automate.</p>
+<p>That's what we're building. And if you've ever felt frustrated by a valuation model that gave you one number and expected you to trust it — welcome.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3>What is a Confidence Coefficient in stock valuation?</h3>
+<p>The Confidence Coefficient is a forward-looking multiplier used in the Allen Framework to adjust a company's historical Owner Earnings growth rate (CAGR) based on evidence about its future trajectory. Unlike traditional DCF models that use a single assumed growth rate, the CC produces a range of adjusted growth rates — reflecting the reality that conviction about a company's future is not binary. It ranges from below 1.0x (when you expect deceleration) to 2.5x or higher (when overwhelming evidence supports acceleration), with each tier requiring progressively stronger proof.</p>
+<h3>How does the Confidence Coefficient differ from traditional growth rate assumptions?</h3>
+<p>Traditional models pick one growth rate and run with it — often based on analyst consensus or historical averages. The problem? That single number implies false precision. The Confidence Coefficient differs in three ways: (1) it explicitly acknowledges uncertainty by producing a range, not a point; (2) it has a structured grading system with escalating evidence requirements — you can't claim high growth without proof; and (3) it's dynamic, adjusting as new information arrives rather than sitting static in a spreadsheet until someone remembers to update it.</p>
+<h3>Can the Confidence Coefficient go below 1.0?</h3>
+<p>Absolutely. A CC below 1.0 means you believe the company will grow slower than its historical track record. This happens when competitive threats emerge, management credibility erodes, market conditions shift unfavorably, or industry dynamics change. For example, if a company with a 15% historical CAGR faces three new competitors building comparable capacity, a CC of 0.8x would adjust the growth expectation down to 12%. This is Munger's inversion principle embedded directly in the math: always ask what would make this company grow slower, and if the answer is credible, let the CC reflect it.</p>
+<h3>What happens when management integrity fails?</h3>
+<p>The analysis terminates. The Allen Framework has a one-strike rule: if management is caught lying, falsifying data, or systematically breaking commitments to shareholders, the CC isn't set to 0.5x or 0.3x — it's removed entirely. No intrinsic value is calculated. No DCF is run. This is the "Terminate" tier, and it's binary. Integrity isn't a dial you can turn down gradually; it's a threshold. Below it, no amount of financial performance or growth potential matters, because you can no longer trust the numbers those claims are built on.</p>
+<h3>How often should the Confidence Coefficient be updated?</h3>
+<p>Every time material new information arrives. An earnings call that reveals accelerated or delayed capex? Update. A management change at the CEO or CFO level? Update. A competitor entering or exiting the market? Update. The CC is designed to be a living parameter, not a set-it-and-forget-it assumption. At IVCO, the system continuously monitors public signals — capital expenditure filings, insider transactions, competitive moves, management commitments — and surfaces when the CC for a tracked company may need adjustment. The goal is to make your valuation as current as your information.</p>
+<h2>About the author</h2><p><strong>IVCO Fisher</strong> designed the Confidence Coefficient system — a five-tier framework that turns subjective conviction into measurable valuation ranges.</p>
+</div></div>
+</article></main>
+<footer class="bot"><div class="wrap"><p class="meta">IVCO Fisher. Independent value investing research. Not investment advice.</p></div></footer>
+</body></html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IVCO Fisher — Value investing research</title>
+<meta name="description" content="IVCO Fisher: independent value investing research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF0EC; --paper-2:#E3E7E1; --ink:#15202B; --ink-2:#3B4753; --rule:#B7BEB8; --claret:#7E2530; --moss:#2F5A4A;
+  --serif:"Newsreader","Iowan Old Style",Georgia,serif; --sans:"Hanken Grotesk",system-ui,sans-serif;
+  --s-1:.875rem; --s0:1.125rem; --s1:1.375rem; --s2:1.75rem; --s3:2.5rem; --s4:4.25rem;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scrollbar-color:var(--ink-2) var(--paper-2)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--s0)/1.62 var(--serif);font-optical-sizing:auto;overflow-wrap:break-word;text-rendering:optimizeLegibility}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.2em}
+a:hover{color:var(--claret)}
+:focus-visible{outline:2px solid var(--claret);outline-offset:3px}
+.wrap{max-width:76rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;background:var(--ink);color:var(--paper);padding:.5rem 1rem;z-index:9}
+header.top{border-bottom:2px solid var(--ink)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-top:1.1rem;padding-bottom:.9rem}
+.mark{font:600 1.5rem/1 var(--serif);letter-spacing:-.01em;text-decoration:none}
+nav{font:500 var(--s-1)/1 var(--sans);display:flex;gap:1.5rem}
+nav a{text-decoration:none;padding:.5rem 0}nav a:hover,nav a[aria-current]{text-decoration:underline}
+.meta{font:400 var(--s-1)/1.4 var(--sans);color:var(--ink-2)}
+.statement{padding:clamp(3rem,9vw,7rem) 0 clamp(2.5rem,6vw,4.5rem)}
+.statement h1{margin:0;font:500 6rem/.98 var(--serif);letter-spacing:-.03em;text-wrap:balance}
+.statement h1 span{display:block}
+.statement h1 span:nth-child(n+3){color:var(--moss)}
+.statement p{max-width:34rem;margin:2rem 0 0;color:var(--ink-2);font-size:var(--s1);line-height:1.5}
+.front{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(2rem,5vw,4.5rem);border-top:1px solid var(--ink);padding-top:2rem}
+.lead h2{margin:.4rem 0 1rem;font:600 3rem/1.06 var(--serif);letter-spacing:-.02em;text-wrap:balance}
+.lead h2 a{text-decoration:none}.lead h2 a:hover{text-decoration:underline}
+.lead p.meta,.index p.meta{font:400 var(--s-1)/1.4 var(--sans);color:var(--ink-2);margin:0}
+.lead p{font-size:var(--s1);line-height:1.55;margin:0 0 1.25rem;max-width:38rem}
+.read{font:600 var(--s-1)/1 var(--sans);text-decoration:underline;text-underline-offset:.3em}
+.index{border-left:1px solid var(--rule);padding:.5rem 0 .5rem 2rem}
+.index h2{margin:0 0 .25rem;font:600 var(--s1)/1.2 var(--serif)}
+.index ol{list-style:none;margin:0;padding:0}
+.index li{padding:1.1rem 0;border-top:1px solid var(--rule)}
+.index li:first-child{border-top:0}
+.index h3{margin:.25rem 0 .4rem;font:600 var(--s1)/1.2 var(--serif);text-wrap:balance}
+.index h3 a{text-decoration:none}.index h3 a:hover{text-decoration:underline}
+.index p{margin:0;font-size:1rem;line-height:1.5;color:var(--ink-2)}
+.about{margin:clamp(3rem,7vw,5.5rem) 0 0;border-top:2px solid var(--ink);padding:2rem 0 4rem;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,5vw,4.5rem)}
+.about h2{margin:0;font:600 var(--s2)/1.1 var(--serif);text-wrap:balance}
+.about p{margin:0;font-size:var(--s1);line-height:1.55;max-width:38rem}
+footer.bot{border-top:1px solid var(--rule);padding:1.5rem 0 2.5rem}
+footer.bot p{margin:0}
+/* article */
+.piece{padding-top:clamp(2.5rem,6vw,4.5rem);padding-bottom:4rem}
+.piece-head{max-width:52rem}
+.piece-head h1{margin:.4rem 0 1.25rem;font:600 4rem/1.03 var(--serif);letter-spacing:-.025em;text-wrap:balance}
+.deck{font-size:var(--s1);line-height:1.55;color:var(--ink-2);margin:0 0 1.5rem}
+.byline{border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:.75rem 0;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.cols{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,38rem);gap:clamp(2rem,6vw,5.5rem);justify-content:start}
+.contents{display:block;position:sticky;top:1.5rem;align-self:start;font:400 var(--s-1)/1.4 var(--sans)}
+.contents h2{margin:0 0 .75rem;font:600 var(--s-1)/1.2 var(--sans)}
+.contents ol{list-style:none;padding:0;margin:0}.contents li{padding:.35rem 0;border-top:1px solid var(--rule)}
+.contents a{text-decoration:none}.contents a:hover{text-decoration:underline}
+.prose{font-size:1.1875rem;line-height:1.68}
+.prose p{margin:0 0 1.15em}
+.prose h2{margin:2.6em 0 .7em;font:600 var(--s2)/1.12 var(--serif);letter-spacing:-.015em;text-wrap:balance;scroll-margin-top:1rem}
+.prose h3{margin:2em 0 .6em;font:600 var(--s1)/1.2 var(--serif);text-wrap:balance}
+.prose ul{margin:0 0 1.3em;padding-left:1.25em}.prose li{margin:0 0 .6em;padding-left:.25em}
+.prose strong{font-weight:600}
+.formula{margin:1.6em 0;padding:1rem 1.25rem;border:1px solid var(--ink);font:500 1.0625rem/1.4 var(--sans)}
+table.spec{width:100%;border-collapse:collapse;margin:1.5em 0 2em;font:400 1rem/1.4 var(--sans);font-variant-numeric:tabular-nums}
+table.spec caption{text-align:left;font-weight:600;padding-bottom:.6rem}
+table.spec th,table.spec td{padding:.6rem .5rem;border-top:1px solid var(--rule);text-align:left}
+table.spec thead th{border-top:2px solid var(--ink);font-weight:600}
+table.spec tbody th{font-weight:400}table.spec td{text-align:right;font-weight:600}
+.prose h2#frequently-asked-questions~h3{font-size:1.25rem}
+@media (max-width:52rem){
+  .lead h2{font-size:2.25rem}
+  .piece-head h1{font-size:2.5rem}
+  .statement h1{font-size:3rem}
+  .front,.about,.cols{grid-template-columns:minmax(0,1fr)}
+  .index{border-left:0;padding-left:0;border-top:2px solid var(--ink);padding-top:1.5rem}
+  .contents{position:static}
+  .statement p{font-size:1.25rem}
+  .prose{font-size:1.125rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+<a class="mark" href="index.html">IVCO Fisher</a>
+<nav aria-label="Primary"><a href="index.html" aria-current="page">Research</a><a href="index.html#about">About</a></nav>
+</div></header>
+<main id="main"><div class="wrap">
+<section class="statement" aria-label="IVCO Fisher">
+<h1><span>I don&#x27;t predict markets.</span><span>I study businesses.</span><span>Noise fades.</span><span>Facts compound.</span></h1>
+<p>IVCO Fisher publishes the Allen Framework: how to value a business from its owner earnings, and how sure to be about the answer.</p>
+</section>
+<section class="front" aria-label="Latest research">
+<article class="lead"><p class="meta">February 16, 2026, 17 min read, Framework</p>
+<h2><a href="post.html">Confidence Coefficient: Why a Range, Not a Number</a></h2>
+<p>Every valuation model gives you a single number. The Confidence Coefficient gives you a range — because conviction isn&#x27;t binary, and the future isn&#x27;t a straight line.</p>
+<a class="read" href="post.html">Read the article</a></article>
+<div class="index"><h2>More from the Allen Framework</h2><ol>
+<li><article><p class="meta">Opinion, 13 min read</p><h3><a href="https://ivco.ai/posts/how-ivco-became-an-intelligence">How IVCO Became an Intelligence: From Blog Platform to AI Research Engine</a></h3><p>We set out to build a blog. We ended up building an intelligence. This is the story of how one brainstorming session turned IVCO from a static content platform into a self-evolving AI research engine — and why that distinction matters for the future of value investing.</p></article></li>
+<li><article><p class="meta">Framework, 14 min read</p><h3><a href="https://ivco.ai/posts/three-stage-dcf-philosophy-to-algorithm">Three-Stage DCF: From Philosophy to Algorithm</a></h3><p>Most DCF models pretend the future is one straight line. The Allen Framework splits it into three stages — and turns philosophy into Python you can actually run.</p></article></li>
+<li><article><p class="meta">Framework, 11 min read</p><h3><a href="https://ivco.ai/posts/what-are-owner-earnings">What Are Owner Earnings? A Practical Guide</a></h3><p>Warren Buffett said subtract maintenance capex — then told us to guess. The Allen Framework replaces the guesswork with a company-specific Maintenance Ratio you can actually measure.</p></article></li>
+<li><article><p class="meta">Brand Story, 12 min read</p><h3><a href="https://ivco.ai/posts/why-we-built-ivco">Why We Built IVCO: An AI-Powered Value Investing System</a></h3><p>IVCO was born from old-school value investing discipline, sharpened by modern tools, and designed for one purpose: help investors think better, decide clearer, and act with conviction.</p></article></li>
+<li><article><p class="meta">Case Study, 13 min read</p><h3><a href="https://ivco.ai/posts/tsmc-intrinsic-value-case-study">TSMC Case Study: From 10-Year Financials to Intrinsic Value Range</a></h3><p>Walk through TSMC&#x27;s complete valuation: 10-year financials → Owner Earnings → Reality Coefficient → Three-Stage DCF → Confidence Coefficient → IV Range of NT$4,565-5,639</p></article></li>
+<li><article><p class="meta">Framework, 11 min read</p><h3><a href="https://ivco.ai/posts/allen-framework-vs-buffett-owner-earnings-1986">Allen Framework vs Buffett Owner Earnings: What Changed</a></h3><p>Warren Buffett gave us the philosophy. The Allen Framework gave us the algorithm. Here&#x27;s how 40 years of evolution transformed &quot;owner earnings&quot; from an art into a science you can actually run.</p></article></li>
+</ol></div>
+</section>
+<section class="about" id="about"><h2>An intrinsic value is a range, so we publish ranges.</h2><p>Every article here follows the same chain: ten years of financials, Owner Earnings, a Reality Coefficient, a Three-Stage DCF, and a Confidence Coefficient that turns conviction into a stated range. TSMC is the worked example, with an intrinsic value range of NT$4,565 to NT$5,639 per share.</p></section>
+</div></main>
+<footer class="bot"><div class="wrap"><p class="meta">IVCO Fisher. Independent value investing research. Not investment advice.</p></div></footer>
+</body></html>

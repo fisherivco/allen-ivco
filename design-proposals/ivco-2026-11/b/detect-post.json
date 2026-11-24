@@ -1,0 +1,23 @@
+[
+  {
+    "antipattern": "em-dash-overuse",
+    "name": "Em-dash overuse",
+    "description": "Em-dash saturation in body copy is an AI cadence tell. Advisory only: humans use em-dashes legitimately, so this fires only on saturation — at least 8 em-dashes (— or --) at a density near one per 500 characters of body text — never on a long article that uses a few. Prefer commas, colons, periods, or parentheses.",
+    "severity": "advisory",
+    "category": "slop",
+    "file": "/Users/fisherivco/fisher/llm-workspace/tmp/zones/dq/t3-wt/design-proposals/ivco-2026-11/b/post.html",
+    "line": 0,
+    "snippet": "51 em-dashes in body text",
+    "advisory": true
+  },
+  {
+    "antipattern": "aphoristic-cadence",
+    "name": "Aphoristic-cadence copy",
+    "description": "Three or more sections landing on a short rebuttal sentence (\"X. No Y.\" / \"X. Just Y.\") or a manufactured-contrast aphorism (\"Not a feature. A platform.\") reads as AI cadence, not voice. Once is fine; the pattern is the tell.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "/Users/fisherivco/fisher/llm-workspace/tmp/zones/dq/t3-wt/design-proposals/ivco-2026-11/b/post.html",
+    "line": 0,
+    "snippet": "7 aphoristic constructions: \"Not a mental note. Not a feeling.\""
+  }
+]
