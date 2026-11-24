@@ -139,7 +139,7 @@ table.spec tbody tr:last-child td{color:var(--amber)}
 <p>The Confidence Coefficient (CC) is a multiplier applied to a company's historical Owner Earnings CAGR. It reflects your forward-looking conviction about whether that company will grow faster, slower, or about the same as its historical track record.</p>
 <p class="formula">Adjusted CAGR = Historical Owner Earnings CAGR × CC</p>
 <p>If a company's historical CAGR is 17.66% and your CC is 1.2x, your adjusted CAGR becomes 21.19%. If your CC is 1.5x, it's 26.49%.</p>
-<p>Notice what happened: you didn't get a single growth rate. You got a range. And that range feeds directly into a Three-Stage DCF that produces an intrinsic value range — not a point estimate.</p>
+<p>Notice what happened: you didn't get a single growth rate. You got a range. And that range feeds directly into a <a href="https://ivco.ai/posts/three-stage-dcf-philosophy-to-algorithm">Three-Stage DCF</a> that produces an intrinsic value range — not a point estimate.</p>
 <p>This is deliberate. The CC exists precisely because the future is uncertain, and pretending otherwise is the most dangerous thing a value investor can do.</p>
 <p>But — and this is crucial — the CC isn't just a number you pull out of thin air. It has a grading system. It has escalating evidence requirements. And it can go down, not just up.</p>
 <h2 id="the-grading-system-four-tiers-plus-one-kill-switch">The Grading System: Four Tiers (Plus One Kill Switch)</h2>
@@ -189,12 +189,12 @@ table.spec tbody tr:last-child td{color:var(--amber)}
 <p>The CC is designed to move.</p>
 <p>New earnings call reveals accelerated capex timeline? CC goes up. Management misses a delivery commitment for the first time? CC goes down. A competitor announces a breakthrough that narrows the technology gap? CC goes down. Insider buying spikes after a price decline? Maybe CC goes up — if the other evidence supports it.</p>
 <p>This is Fisher's scuttlebutt method, quantified. Fisher spent his career talking to suppliers, customers, employees — anyone who could give him a signal about a company's real trajectory. The CC takes those signals and converts them into a mathematical input.</p>
-<p>And because the CC feeds directly into a Three-Stage DCF, every adjustment ripples through the entire valuation. Change the CC, and your intrinsic value range shifts. Automatically.</p>
+<p>And because the CC feeds directly into a <a href="https://ivco.ai/posts/three-stage-dcf-philosophy-to-algorithm">Three-Stage DCF</a>, every adjustment ripples through the entire valuation. Change the CC, and your intrinsic value range shifts. Automatically.</p>
 <p>That's the system we're building at IVCO (Intrinsic Value Confidence Observatory). Not a static spreadsheet. A living, breathing valuation engine that updates as the world changes.</p>
 <h2 id="tsmc-the-confidence-coefficient-in-action">TSMC: The Confidence Coefficient in Action</h2>
-<p>Let's make this concrete with a company I've studied for years: TSMC.</p>
+<p>Let's make this concrete with a company I've studied for years: <a href="https://investor.tsmc.com">TSMC</a>.</p>
 <h3>The historical facts</h3>
-<p>TSMC's Owner Earnings CAGR from 2013 to 2022 is 17.66%. That's nine years of data, calculated using the Allen Framework's Owner Earnings formula with a 20% Maintenance Ratio — because roughly 80% of TSMC's massive capital expenditures go toward building new leading-edge fabs, not maintaining old ones.</p>
+<p>TSMC's Owner Earnings CAGR from 2013 to 2022 is 17.66%. That's nine years of data, calculated using the <a href="https://ivco.ai/posts/allen-framework-vs-buffett-owner-earnings-1986">Allen Framework's Owner Earnings formula</a> with a 20% Maintenance Ratio — because roughly 80% of TSMC's massive capital expenditures go toward building new leading-edge fabs, not maintaining old ones.</p>
 <p>The Reality Coefficient for both endpoint years is 100% — TSMC's books are clean. No one-time gains or losses distorting the numbers.</p>
 <p>So: 17.66% historical growth. Strong, but historical.</p>
 <p>The forward-looking question: what CC do we assign?</p>
@@ -227,7 +227,7 @@ table.spec tbody tr:last-child td{color:var(--amber)}
 <p>This is what happens when you combine Fisher's investigative rigor with a systematic framework. The information was public. It was in the annual report. Anyone could have read it. But almost nobody did — because the market was staring at the next quarter, not the next decade.</p>
 <p>The Extreme tier exists for moments like this. But it demands the highest burden of proof: annual report disclosure, a perfect execution record, and a written thesis you're willing to defend. Because a 2.5x+ CC is a bold claim, and bold claims require ironclad evidence.</p>
 <h2 id="building-it-into-ivco">Building It Into IVCO</h2>
-<p>Everything I've described — the tiers, the evidence requirements, the dynamic adjustments — is being engineered into IVCO.</p>
+<p>Everything I've described — the tiers, the evidence requirements, the dynamic adjustments — is being engineered into <a href="https://ivco.io">IVCO</a>.</p>
 <p>Here's what the system tracks, all from public information:</p>
 <ul>
 <li><strong>Capital expenditure announcements:</strong> New factory filings, equipment purchase disclosures, construction permits. When a company commits capital, IVCO records the commitment and tracks execution against timeline.</li>
@@ -236,7 +236,7 @@ table.spec tbody tr:last-child td{color:var(--amber)}
 <li><strong>Insider transactions:</strong> Directors and officers buying their own stock — especially after a price decline — is a signal. Not conclusive on its own, but combined with strong fundamentals and expansion evidence, it reinforces conviction.</li>
 </ul>
 <p>The beauty of this approach is that it turns Fisher's qualitative "scuttlebutt" into structured data. Instead of relying on phone calls and personal networks, IVCO monitors the public record continuously and surfaces the signals that matter.</p>
-<p>And because the CC feeds into the Three-Stage DCF automatically, every signal that shifts the CC produces an updated intrinsic value range. In real-time.</p>
+<p>And because the CC feeds into the <a href="https://ivco.ai/posts/three-stage-dcf-philosophy-to-algorithm">Three-Stage DCF</a> automatically, every signal that shifts the CC produces an updated intrinsic value range. In real-time.</p>
 <p>No analyst visit required. No quarterly model rebuild. Just a system that watches, measures, and adjusts — the way Graham, Buffett, Fisher, and Munger always said investing should be done, but never had the technology to automate.</p>
 <p>That's what we're building. And if you've ever felt frustrated by a valuation model that gave you one number and expected you to trust it — welcome.</p>
 <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
@@ -253,5 +253,5 @@ table.spec tbody tr:last-child td{color:var(--amber)}
 <h2>About the author</h2><p><strong>IVCO Fisher</strong> designed the Confidence Coefficient system — a five-tier framework that turns subjective conviction into measurable valuation ranges.</p>
 </div></article>
 </div></main>
-<footer class="bot"><div class="in">IVCO Fisher. An intrinsic value is a range. Not investment advice.</div></footer>
+<footer class="bot"><div class="in">© 2026 IVCO Fisher</div></footer>
 </body></html>

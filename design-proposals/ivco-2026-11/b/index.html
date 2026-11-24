@@ -47,10 +47,13 @@ nav{display:flex;gap:1.25rem;font-size:.9375rem}nav a{color:var(--muted);text-de
 .tiers i{display:block;height:100%}
 .legend{list-style:none;margin:.6rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;font-size:.8125rem;color:var(--muted)}
 .legend li{display:flex;align-items:center;gap:.4rem}.legend i{width:10px;height:10px;border-radius:2px;flex:none}
-.slide{margin-top:1.25rem}
-.slide label{display:block;font-size:.9375rem;margin-bottom:.5rem}
-input[type=range]{width:100%;accent-color:var(--amber);height:28px;margin:0}
-.readout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1rem}
+.cc-pick{border:0;margin:1.25rem 0 0;padding:0;min-width:0}
+.cc-pick legend{font-size:.9375rem;padding:0;margin:0 0 .5rem}
+.cc-pick .opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+.cc-pick label{display:grid;gap:.2rem;background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:.7rem .75rem;cursor:pointer;min-width:0}
+.cc-pick label:has(:checked){border-color:var(--amber)}
+.cc-pick input{accent-color:var(--amber);margin:0 0 .25rem}
+.readout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin-top:1rem}
 .readout div{background:var(--panel-2);border-radius:6px;padding:.6rem .75rem;min-width:0}
 .readout dt{font-size:.8125rem;color:var(--muted)}.readout dd{margin:.1rem 0 0;font-size:1.125rem;font-weight:500}
 .note{margin:1rem 0 0;font-size:.8125rem;color:var(--muted)}
@@ -118,21 +121,27 @@ table.spec tbody tr:last-child td{color:var(--amber)}
 <main id="main" class="shell">
 <section class="hero" aria-label="IVCO Fisher">
 <div><h1><span>I don&#x27;t predict markets.</span><span>I study businesses.</span><span>Noise fades.</span><span>Facts compound.</span></h1>
-<p class="lede">Intrinsic value is a range. Each IVCO valuation shows the range, the Confidence Coefficient behind it, and the evidence that earned it.</p></div>
+<p class="lede">Intrinsic value is a range. The published TSMC case study shows the range, the Confidence Coefficient behind it, and the evidence that earned it.</p></div>
 <section class="panel" aria-labelledby="case">
 <h2 id="case">TSMC case study, as published</h2>
-<p class="sub">Owner Earnings CAGR 2013 to 2022, three-stage DCF, Steady tier</p>
+<p class="sub">Owner Earnings CAGR 2013 to 2022, three-stage DCF</p>
 <p class="range-read"><span class="num">NT$4,565 - NT$5,639</span><span>intrinsic value per share</span></p>
 <div class="track" role="img" aria-label="Intrinsic value range from NT$4,565 to NT$5,639 per share"><div class="band"></div></div>
 <div class="ends num"><span>NT$4,565</span><span>NT$5,639</span></div>
 <div class="cc">
-<h2>Confidence Coefficient tiers</h2>
-<div class="tiers" role="img" aria-label="Tier scale: Conservative 0.8x to 1.0x, Steady 1.0x to 1.5x, Aggressive 1.5x to 2.5x, Extreme 2.5x and above"><i style="width:9%;background:#3A4A57"></i><i style="width:23%;background:#2E6F73"></i><i style="width:45%;background:#3C9A94"></i><i style="width:23%;background:#8FD3C4"></i></div>
+<h2>Numeric Confidence Coefficient tiers</h2>
+<div class="tiers" role="img" aria-label="Numeric Confidence Coefficient tiers: Conservative 0.8x to 1.0x, Steady 1.0x to 1.5x, Aggressive 1.5x to 2.5x, Extreme 2.5x and above"><i style="width:9%;background:#3A4A57"></i><i style="width:23%;background:#2E6F73"></i><i style="width:45%;background:#3C9A94"></i><i style="width:23%;background:#8FD3C4"></i></div>
 <ul class="legend"><li><i style="background:#3A4A57"></i>Conservative <span class="num">0.8x - 1.0x</span></li><li><i style="background:#2E6F73"></i>Steady <span class="num">1.0x - 1.5x</span></li><li><i style="background:#3C9A94"></i>Aggressive <span class="num">1.5x - 2.5x</span></li><li><i style="background:#8FD3C4"></i>Extreme <span class="num">2.5x +</span></li></ul>
-<div class="slide"><label for="cc">Confidence Coefficient: <span class="num" id="ccv">1.2x</span></label>
-<input id="cc" type="range" min="0.8" max="3" step="0.1" value="1.2"></div>
-<dl class="readout"><div><dt>Historical CAGR</dt><dd class="num">17.66%</dd></div><div><dt>Adjusted CAGR</dt><dd class="num" id="adj">21.19%</dd></div><div><dt>Tier</dt><dd id="tier">Steady</dd></div></dl>
-<p class="note">Adjusted CAGR = 17.66% x CC. TSMC was graded 1.2x to 1.5x, which gives 21.19% to 26.49%.</p>
+<p class="note">Terminate is N/A: the analysis stops, and no numeric CC is assigned.</p>
+<fieldset class="cc-pick">
+<legend>Published TSMC pairs, both Steady</legend>
+<div class="opts">
+<label><input type="radio" name="cc" value="1.2" data-adj="21.19%" checked><span class="num">1.2x / 21.19%</span></label>
+<label><input type="radio" name="cc" value="1.5" data-adj="26.49%"><span class="num">1.5x / 26.49%</span></label>
+</div>
+</fieldset>
+<dl class="readout"><div><dt>Historical CAGR</dt><dd class="num">17.66%</dd></div><div><dt>Adjusted CAGR</dt><dd class="num" id="adj">21.19%</dd></div></dl>
+<p class="note">17.66% is the published historical Owner Earnings CAGR (2013 to 2022). The two selector positions are the published pairs 1.2x / 21.19% and 1.5x / 26.49%.</p>
 </div>
 </section>
 </section>
@@ -151,11 +160,13 @@ table.spec tbody tr:last-child td{color:var(--amber)}
 </main>
 <script>
 (function(){
-  var cc=document.getElementById('cc'),v=document.getElementById('ccv'),a=document.getElementById('adj'),t=document.getElementById('tier');
-  function tier(x){return x<1?'Conservative':x<1.5?'Steady':x<2.5?'Aggressive':'Extreme';}
-  function up(){var x=parseFloat(cc.value);v.textContent=x.toFixed(1)+'x';a.textContent=(17.66*x).toFixed(2)+'%';t.textContent=tier(x);}
-  cc.addEventListener('input',up);up();
+  var a=document.getElementById('adj');
+  function up(el){a.textContent=el.getAttribute('data-adj');}
+  document.querySelectorAll('input[name=cc]').forEach(function(el){
+    el.addEventListener('change',function(){up(el);});
+    if(el.checked)up(el);
+  });
 })();
 </script>
-<footer class="bot"><div class="in">IVCO Fisher. An intrinsic value is a range. Not investment advice.</div></footer>
+<footer class="bot"><div class="in">© 2026 IVCO Fisher</div></footer>
 </body></html>

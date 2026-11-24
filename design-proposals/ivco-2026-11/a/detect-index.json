@@ -2,10 +2,10 @@
   {
     "antipattern": "cramped-padding",
     "name": "Cramped padding",
-    "description": "Text is too close to the edge of its container. Two shapes: (1) an element with its own text where the space between the rendered text and the border box is too small for the font size, and (2) a wrapper whose children's text lands flush against a visible boundary (border, outline, or non-transparent background) with nothing to inset it. Add at least 8px (ideally 12–16px) of space inside bordered, outlined, or colored containers.",
+    "description": "Text is too close to the edge of its container. Two shapes: (1) an element with its own text where the space between the rendered text and the border box is too small for the font size, and (2) a wrapper whose children's text lands flush against a visible boundary (border, outline, or non-transparent background) with nothing to inset it. Add at least 8px (ideally 12\u201316px) of space inside bordered, outlined, or colored containers.",
     "severity": "warning",
     "category": "quality",
-    "file": "/Users/fisherivco/fisher/llm-workspace/tmp/zones/dq/t3-wt/design-proposals/ivco-2026-11/a/index.html",
+    "file": "design-proposals/ivco-2026-11/a/index.html",
     "line": 0,
     "snippet": "<div> \"index\": children flush against border-top/left on left (no inset)"
   }
