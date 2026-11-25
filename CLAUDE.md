@@ -451,6 +451,7 @@ ivco/
 | **X** | [@ivco_fisher](https://x.com/ivco_fisher) |
 | **Domain** | ivco.io (primary) + ivco.ai (defense) |
 | **Role** | 對外品牌人格 — IVCO 系統的公開形象 |
+| **Visual identity** | `docs/brand/visual-identity.md`（direction B, owner pick 2026-11-25） |
 
 **命名由來**：IVC Calculator → IVCO — Observatory 代表「觀測站」，不是交易所，不是機器人。Allen 造字。
 
